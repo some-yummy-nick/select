@@ -1,0 +1,152 @@
+
+
+.select {
+	position: relative;
+	display: inline-block;
+	overflow: hidden;
+}
+
+.select.active {
+	z-index: 11;
+	overflow: visible;
+}
+
+.select.active .select__title:after {
+	top: 14px;
+	-webkit-transform: rotate(-135deg);
+	-ms-transform: rotate(-135deg);
+	transform: rotate(-135deg);
+}
+
+.select.active .select__list {
+	opacity: 1;
+}
+
+.select__initial {
+	display: none;
+}
+
+.select__wrapper {
+	border: 1px solid rgb(0, 0, 0);
+}
+
+.select__wrapper:hover {
+	border-color: rgb(129, 138, 145);
+}
+
+.select__title {
+	position: relative;
+	z-index: 3;
+	width: 100%;
+	padding: 5px 10px;
+	padding-right: 24px;
+	text-align: left;
+	background: rgb(255, 255, 255);
+	border: none;
+}
+
+.select__title::after {
+	content: "";
+	position: absolute;
+	top: 10px;
+	right: 7px;
+	z-index: 3;
+	display: block;
+	width: 10px;
+	height: 10px;
+	border-right: 2px solid currentColor;
+	border-bottom: 2px solid currentColor;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+.select__list {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	z-index: 1;
+	width: auto;
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	opacity: 0;
+	-webkit-transition: opacity 0.2s;
+	-o-transition: opacity 0.2s;
+	transition: opacity 0.2s;
+}
+
+.select__item {
+	padding: 5px 10px;
+	padding-right: 25px;
+	white-space: nowrap;
+	border: 1px solid transparent;
+	cursor: pointer;
+}
+
+.select__item:hover {
+	color: rgb(255, 255, 255);
+	background: rebeccapurple;
+}
+
+.select__item.active {
+	font-weight: 700;
+}
+
+.overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 10;
+	display: none;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+.overlay.flag {
+	display: block;
+	background: transparent;
+}
+
+@media only screen and (max-width: 767px) {
+	.select.active__wrapper:after {
+		top: 15px;
+		-webkit-transform: rotate(-135deg);
+		-ms-transform: rotate(-135deg);
+		transform: rotate(-135deg);
+	}
+
+	.select__custom {
+		display: none;
+	}
+
+	.select__wrapper {
+		position: relative;
+	}
+
+	.select__wrapper::after {
+		content: "";
+		position: absolute;
+		top: 10px;
+		right: 7px;
+		z-index: 3;
+		display: block;
+		width: 10px;
+		height: 10px;
+		border-right: 2px solid currentColor;
+		border-bottom: 2px solid currentColor;
+		-webkit-transform: rotate(45deg);
+		-ms-transform: rotate(45deg);
+		transform: rotate(45deg);
+	}
+
+	.select__initial {
+		display: inline-block;
+		padding: 5px 10px;
+		padding-right: 20px;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+	}
+}
